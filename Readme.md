@@ -10,4 +10,12 @@
   - Endpoint: localhost:3000/news/recent
   - HTTP Method: `GET`
 
+##### Testing
+**unit tests**
+  - $ npm run test
+
+**e2e tests**
+  - $ npm run test:e2e
+
+
 **Note: This API is not optimized due to limited resources. Takes about 20 to 35 seconds to execute**
