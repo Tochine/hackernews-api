@@ -7,7 +7,8 @@ type Config = {
 
 export const config: Config = {
   url: {
-    itemUrl: 'https://hacker-news.firebaseio.com/v0/item',
+    itemUrl:
+      'https://hacker-news.firebaseio.com/v0/item',
     topStoryUrl:
       'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty',
   },

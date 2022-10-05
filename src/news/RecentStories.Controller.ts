@@ -17,20 +17,28 @@ export class RecentStoriesController {
     const endItem = 25;
 
     // fetch array of item ids
-    const { data } = await this.service.fetchStories();
-    const stories = data.map((x) => {
+    const { data } =
+      await this.service.fetchStories();
+    const stories = data.map((x: any) => {
       return x;
     });
-    const recentStories = stories.slice(startItem, endItem);
+    const recentStories = stories.slice(
+      startItem,
+      endItem,
+    );
 
     const arr = [];
-    // let url = {};
-    for (let i = 0; i < recentStories.length; i++) {
+    for (
+      let i = 0;
+      i < recentStories.length;
+      i++
+    ) {
       const id = recentStories[i];
-      // console.log(`${i} ${id}`);
-      const { data } = await this.http.axiosRef.get(
-        `${config.url.itemUrl}/${id}.json?print=pretty`,
-      );
+
+      const { data } =
+        await this.http.axiosRef.get(
+          `${config.url.itemUrl}/${id}.json?print=pretty`,
+        );
 
       arr.push(data.title);
     }
@@ -40,7 +48,10 @@ export class RecentStoriesController {
     const newArray = [];
     arr.forEach(function (entry) {
       // eslint-disable-next-line prefer-spread
-      newArray.push.apply(newArray, entry.split(' '));
+      newArray.push.apply(
+        newArray,
+        entry.split(' '),
+      );
     });
 
     console.log(newArray);
