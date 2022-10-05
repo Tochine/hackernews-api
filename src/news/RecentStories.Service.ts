@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
+import { config } from '../config';
 
 @Injectable()
 export class RecentStoriesService {
-  constructor(private readonly http: HttpService) {}
+  constructor(
+    private readonly http: HttpService,
+  ) {}
   async fetchStories() {
     const data = await this.http.axiosRef.get(
-      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty',
+      `${config.url.topStoryUrl}`,
     );
     return data;
   }
